@@ -1,54 +1,54 @@
 %Hermanos, padres y yo
-padreDe('Wilson','Duvan').
-padreDe('Hermila','Duvan').
-padreDe('Wilson','Angie').
-padreDe('Hermila','Angie').
-padreDe('Wilson','Isabella').
-padreDe('Hermila','Isabella').
+padrede('wilson','duvan').
+padrede('hermila','duvan').
+padrede('wilson','angie').
+padrede('hermila','angie').
+padrede('wilson','isabella').
+padrede('hermila','isabella').
 
 %Primos y tios
 
-padreDe('Nilian','Maria').
-padreDe('Nilian','Yesenia').
-padreDe('Nilian','Nailin').
-padreDe('Yesid','Maria').
-padreDe('Yesid','Yesenia').
-padreDe('Yesid','Nailin').
+padrede('nilian','maria').
+padrede('nilian','yesenia').
+padrede('nilian','nailin').
+padrede('yesid','maria').
+padrede('yesid','yesenia').
+padrede('yesid','nailin').
 
 %Abuelos y Bisabuelos Maternos
 
-padreDe('Enith','Hermila').
-padreDe('Enith','Nilian').
-padreDe('Fabian','Hermila').
-padreDe('Fabian','Nilian').
+padrede('enith','hermila').
+padrede('enith','nilian').
+padrede('fabian','hermila').
+padrede('fabian','nilian').
 
-padreDe('Sebastian','Enith').
-padreDe('Paula','Enith').
+padrede('sebastian','enith').
+padrede('paula','enith').
 
-padreDe('Nicolas','Fabian').
-padreDe('Isabell','Fabian').
+padrede('nicolas','fabian').
+padrede('isabell','fabian').
 
 %Abuelos y Bisabuelos Maternos
 
-padreDe('Rubiela','Wilson').
-padreDe('Benedicto','Wilson').
+padrede('rubiela','wilson').
+padrede('benedicto','wilson').
 
-padreDe('Raul','Rubiela').
-padreDe('Marisol','Rubiela').
+padrede('raul','rubiela').
+padrede('marisol','rubiela').
 
-padreDe('Saul','Benedicto').
-padreDe('Soraya','Benedicto').
+padrede('saul','benedicto').
+padrede('soraya','benedicto').
 
 %Reglas
 
-hermanoDe(A,B) :-padreDe(C,A), padreDe(C,B), A \== B.
+hermanode(A,B) :-padrede(C,A), padrede(C,B), A \== B.
 
-tioDe(A,B) :- hermanoDe(A,C), hijoDe(B,C).
-primo(A,B) :- tioDe(C,A), hijoDe(B,C).
-hijoDe(A,B) :- padreDe(B,A).
-abueloDe(A,B) :-padreDe(A,C), padreDe(C,B).
+tiode(A,B) :- hermanode(A,C), hijode(B,C).
+primo(A,B) :- tiode(C,A), hijode(B,C).
+hijode(A,B) :- padrede(B,A).
+abuelode(A,B) :-padrede(A,C), padrede(C,B).
 
-casado(A,B) :- hijoDe(C,A), hijoDe(C,B), A \== B.
-nietoDe(A,B) :- padreDe(B,C), padreDe(C,A).
+casado(A,B) :- hijode(C,A), hijode(C,B), A \== B.
+nietode(A,B) :- padrede(B,C), padrede(C,A).
 
 feliz(A) :- (casado(A,B)), A \== B.
